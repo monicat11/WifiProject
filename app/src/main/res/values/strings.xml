@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Wifi</string>
+    <string name="wifi_disabled">Wifi Disabled</string>
+    <string name="enable_wifi">Wifi Enabled</string>
+    <string name="exit_app">Exit App</string>
+    <string name="connecting">Connecting</string>
+    <string name="connecting_to_wifi">connecting</string>
+    <string name="wifi_not_connected">Wifi not connected</string>
+    <string name="wifi_not_found">wifi not found</string>
+</resources>
