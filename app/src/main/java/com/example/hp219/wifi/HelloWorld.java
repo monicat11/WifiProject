@@ -16,7 +16,7 @@ public class HelloWorld {
                     }
                 });
         Flowable<String> source = Flowable.fromCallable(() -> {
-            Thread.sleep(1000); //  imitate expensive computation
+            Thread.sleep(1000); //  imitate expen sive computation
             return "Done";
         });
 
