@@ -1,6 +1,5 @@
 package com.example.hp219.wifi;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,13 +16,18 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 
+import com.trello.rxlifecycle.components.RxActivity;
+
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-public abstract class WifiBaseActivity extends Activity {
+import rx.Observable;
+import rx.functions.Action1;
+
+public abstract class WifiBaseActivity extends RxActivity {
     public static final String PSK = "PSK";
     public static final String WEP = "WEP";
     public static final String OPEN = "Open";
@@ -62,7 +66,13 @@ public abstract class WifiBaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        handleWIFI();
+        Observable.just("1", "2")
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        handleWIFI();
+                    }
+                });
     }
 
     /**
@@ -71,7 +81,13 @@ public abstract class WifiBaseActivity extends Activity {
     protected void handleWIFI() {
         WifiManager wifi = (WifiManager) getSystemService(WIFI_SERVICE);
         if (wifi.isWifiEnabled()) {
-            connectToSpecificNetwork();
+            Observable.just("1", "2")
+                    .subscribe(new Action1<String>() {
+                        @Override
+                        public void call(String s) {
+                            connectToSpecificNetwork();
+                        }
+                    });
         } else {
             showWifiDisabledDialog();
         }
